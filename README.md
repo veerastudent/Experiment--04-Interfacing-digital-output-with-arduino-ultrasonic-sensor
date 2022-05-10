@@ -55,10 +55,40 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 
 
 ### PROGRAM 
+```
+// C++ code
+//
+int trigger_pin=7;
+int echo_pin=5;
+long time;
+int distance;
+void setup()
+{
+  pinMode(trigger_pin,OUTPUT);
+  pinMode(echo_pin,INPUT);
+  Serial.begin(9600);
+  
+}
+
+void loop()
+{
+  digitalWrite(trigger_pin, LOW);
+  delay(2); 
+  digitalWrite(trigger_pin, HIGH);
+  delay(10); // Wait for 1000 millisecond(s)
+  digitalWrite(trigger_pin, LOW); // Wait for 1000 millisecond(s)
+  time = pulseIn(echo_pin,HIGH);   
+  distance = (time*0.034/2);
+  Serial.print("DIstance = ");
+  Serial.println(distance);
+ delay(10);
+}
+```
 
 ### Distance vs measurement table 
 
 
+![zxcs](https://user-images.githubusercontent.com/75234790/167700116-f40156be-8e4b-4c8c-be1f-e6969c3509b9.jpeg)
 
 
 
@@ -67,6 +97,6 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 
 ### RESULTS
 
-
+Thus, we have interfaced an FSR(force sensitive resistor) and scale the output voltage obtained to pressure applied is verified.
 
  
